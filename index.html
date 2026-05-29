@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#FFFAEF">
+  <title>시급 2배 챌린지</title>
+
+  <!-- 메타태그 (공유 시 미리보기) -->
+  <meta property="og:title" content="시급 2배 챌린지 안내">
+  <meta property="og:description" content="패스오더 가맹점 알바생을 위한 이벤트 안내 페이지입니다">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+  <style>
+    :root {
+      --bg:          #FFF7E6;
+      --bg-soft:     #FFFAEF;
+
+      --card:        #FFFFFF;
+      --outer-card:  #FFF5D8;
+
+      --line-soft:   #F0E8D6;
+
+      --text-900:    #2A2A2A;
+      --text-700:    #4F4F4F;
+      --text-500:    #888888;
+      --text-400:    #B5B5B5;
+
+      --accent:        #FF6B00;
+      --accent-light:  #FF8A3C;
+      --accent-soft:   #FFE9D6;
+      --accent-faded:  #FFF1E5;
+
+      --yellow:        #FFB800;
+      --yellow-soft:   #FFE9A8;
+
+      --tag-bg:        #EFEFEF;
+      --tag-text:      #6E6E6E;
+      --tag-orange-bg: #FFE9D6;
+      --tag-orange:    #FF6B00;
+
+      --num-bg:        #2A2A2A;
+      --num-text:      #FFFFFF;
+
+      --r-card:    20px;
+      --r-outer:   24px;
+      --r-inner:   16px;
+      --r-tag:     6px;
+      --r-btn:     14px;
+    }
+
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      color: var(--text-900);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: -0.025em;
+      background: #FFECB3;
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 420px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: #FFECB3;
+      padding: 0 0 60px;
+      position: relative;
+    }
+
+    /* ============ 상단 흰색 영역 ============ */
+    .top-white {
+      background: #FFFFFF;
+      padding-bottom: 0;
+      position: relative;
+    }
+    .top-white::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 140px;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,236,179,0.5) 50%, #FFECB3 100%);
+      pointer-events: none;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      position: relative;
+      min-height: 52px;
+    }
+    .topbar .back {
+      position: absolute;
+      left: 16px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+    .topbar .back svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--text-900);
+      stroke-width: 2.2;
+      fill: none;
+    }
+    .topbar h1 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-900);
+    }
+
+    /* ============ 히어로 ============ */
+    .hero-head {
+      padding: 16px 24px 20px;
+    }
+    .hero-title {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: -0.035em;
+      color: var(--text-900);
+    }
+    .hero-title .accent { color: var(--accent); font-weight: 800; }
+    .hero-title .sub {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-500);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .hero-illust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 24px 28px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-illust svg {
+      width: 240px;
+      height: 220px;
+      filter: drop-shadow(0 16px 30px rgba(196, 110, 30, 0.22));
+      animation: float 3.6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .content {
+      padding: 0 18px;
+    }
+
+    /* ============ 카드 공통 ============ */
+    .card {
+      background: var(--card);
+      border-radius: var(--r-card);
+      padding: 26px 24px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 20px rgba(255, 143, 0, 0.20);
+    }
+    .card-title {
+      margin: 0 0 6px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-900);
+      letter-spacing: -0.025em;
+    }
+    .card-sub {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-500);
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    /* ============ 케이스 선택 카드 (동료 진입 시) ============ */
+    .case-card {
+      background: var(--card);
+      border-radius: var(--r-card);
+      padding: 26px 24px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 20px rgba(255, 143, 0, 0.20);
+    }
+    .case-card .card-title {
+      margin-bottom: 4px;
+    }
+    .case-card .card-sub {
+      margin-bottom: 18px;
+    }
+
+    .case-option {
+      border: 1px solid #E5E5E5;
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 12px;
+    }
+    .case-option:last-of-type { margin-bottom: 0; }
+
+    .case-option .case-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--text-500);
+      background: #F2F2F2;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .case-option .case-tag.accent {
+      color: var(--accent);
+      background: var(--accent-faded);
+    }
+    .case-option .case-title {
+      margin: 0 0 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-900);
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+    }
+    .case-option .case-desc {
+      margin: 0 0 14px;
+      font-size: 13px;
+      color: var(--text-700);
+      line-height: 1.6;
+    }
+    .case-option .case-desc strong {
+      color: var(--text-900);
+      font-weight: 700;
+    }
+    .case-option .case-desc .highlight {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .case-btn {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.1s, box-shadow 0.15s;
+    }
+    .case-btn:active {
+      transform: scale(0.98);
+    }
+    .case-btn.primary {
+      background: var(--accent);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(255, 107, 0, 0.25);
+    }
+    .case-btn.primary:hover {
+      background: #FF7B1A;
+    }
+    .case-btn.secondary {
+      background: #F5F5F5;
+      color: var(--text-900);
+      border: 1px solid #E5E5E5;
+    }
+    .case-btn.secondary:hover {
+      background: #EFEFEF;
+    }
+
+    /* ============ 토스트 ============ */
+    .toast-container {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+      width: calc(100% - 32px);
+      max-width: 360px;
+    }
+    .toast {
+      background: #2A2A2A;
+      color: #FFFFFF;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: auto;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .toast .toast-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #FFD84D;
+    }
+    .toast .toast-title::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* ============ 보상 카드 ============ */
+    .reward-card {
+      position: relative;
+    }
+    .reward-card h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-900);
+      padding-right: 60px;
+    }
+    .reward-card .sub {
+      margin: 0 0 16px;
+      font-size: 14px;
+      color: var(--text-500);
+      padding-right: 60px;
+    }
+    .reward-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .reward-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .reward-row:first-of-type {
+      padding-top: 4px;
+    }
+    .reward-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--num-bg);
+      color: var(--num-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .reward-text {
+      flex: 1;
+      font-size: 15.5px;
+      color: var(--text-900);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .reward-text .strong {
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .reward-mini {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      width: 56px;
+      height: 56px;
+    }
+
+    /* ============ 절차 묶음 카드 ============ */
+    .outer-card {
+      background: var(--card);
+      border-radius: var(--r-card);
+      padding: 28px 24px 24px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 20px rgba(255, 143, 0, 0.20);
+    }
+    .outer-card-head {
+      padding: 0 0 8px;
+      margin-bottom: 4px;
+    }
+    .outer-card-title {
+      margin: 0 0 6px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-900);
+      letter-spacing: -0.025em;
+    }
+    .outer-card-sub {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--text-500);
+    }
+
+    .inner-card {
+      background: transparent;
+      border-top: 1px solid var(--line-soft);
+      padding: 20px 0 20px;
+      margin-bottom: 0;
+    }
+    .inner-card:last-child { padding-bottom: 4px; }
+
+    .step-body {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .step-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .step-mini-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--accent-faded);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-mini-icon svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--num-bg);
+      color: var(--num-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .step-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-900);
+      letter-spacing: -0.02em;
+    }
+
+    .step-desc {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-700);
+      line-height: 1.6;
+    }
+    .step-desc strong {
+      color: var(--text-900);
+      font-weight: 700;
+    }
+
+    /* ============ 참여 코드 박스 ============ */
+    .code-callout {
+      margin: 14px 0 0;
+      padding: 18px 20px;
+      background: linear-gradient(135deg, #FFF8E0 0%, #FFEDB8 100%);
+      border-radius: 14px;
+      text-align: center;
+    }
+    .code-callout .code-label {
+      font-size: 12px;
+      color: var(--text-500);
+      font-weight: 600;
+      margin: 0 0 4px;
+    }
+    .code-callout .code-val {
+      font-family: 'SF Mono', ui-monospace, 'Cascadia Mono', 'Roboto Mono', monospace;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-900);
+      letter-spacing: 0.04em;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    /* ============ 손님 응대 카드 ============ */
+    .respond-card {
+      background: var(--card);
+      border-radius: var(--r-card);
+      padding: 26px 24px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 20px rgba(255, 143, 0, 0.20);
+    }
+    .respond-card h3 {
+      margin: 0 0 16px;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-900);
+      letter-spacing: -0.02em;
+    }
+    .respond-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .respond-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: var(--text-700);
+      line-height: 1.65;
+    }
+    .respond-list li:last-child { margin-bottom: 0; }
+    .respond-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .respond-list li strong {
+      color: var(--text-900);
+      font-weight: 700;
+    }
+
+    /* ============ 공유 카드 (본인 진입) ============ */
+    .share-card {
+      background: linear-gradient(135deg, #FFFAEF 0%, #FFF0D6 100%);
+      border-radius: var(--r-card);
+      padding: 26px 24px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 20px rgba(255, 143, 0, 0.20);
+    }
+    .share-card h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-900);
+      letter-spacing: -0.02em;
+    }
+    .share-card .share-lead {
+      margin: 0 0 16px;
+      font-size: 14px;
+      color: var(--text-700);
+      line-height: 1.65;
+    }
+    .share-card .share-lead strong {
+      color: var(--text-900);
+      font-weight: 700;
+    }
+
+    .share-card .share-sub {
+      margin: 0 0 16px;
+      font-size: 14px;
+      color: var(--text-700);
+      line-height: 1.6;
+    }
+    .share-preview {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      border: 1px solid var(--line-soft);
+    }
+    .share-preview .preview-label {
+      font-size: 11px;
+      color: var(--text-500);
+      font-weight: 600;
+      margin: 0 0 6px;
+      letter-spacing: 0.02em;
+    }
+    .share-preview .preview-msg {
+      font-size: 13px;
+      color: var(--text-700);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .share-preview .preview-msg strong {
+      color: var(--text-900);
+      font-weight: 700;
+    }
+    .share-btn {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+      border: none;
+      background: var(--accent);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(255, 107, 0, 0.25);
+      transition: transform 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .share-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* ============ 알바 칭찬 박스 (동료 진입) ============ */
+    .praise-card {
+      background: linear-gradient(135deg, #FFFAEF 0%, #FFE9D6 100%);
+      border-radius: var(--r-card);
+      padding: 24px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 20px rgba(255, 143, 0, 0.20);
+    }
+    .praise-card p {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--text-700);
+      line-height: 1.75;
+    }
+    .praise-card p:not(:last-child) { margin-bottom: 12px; }
+    .praise-card .praise-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-900);
+      margin-bottom: 10px;
+    }
+    .praise-card strong { color: var(--accent); font-weight: 700; }
+
+    /* ============ 강조 카드 ============ */
+    .highlight-card {
+      position: relative;
+      background: var(--card);
+      padding: 26px 24px;
+      border-radius: var(--r-card);
+      margin-bottom: 14px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(255, 143, 0, 0.20);
+    }
+    .highlight-card .label {
+      font-size: 13px;
+      color: var(--text-700);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .highlight-card .big {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    .highlight-mini {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 10px;
+      display: block;
+    }
+
+    /* ============ FAQ ============ */
+    .faq-section { margin-top: 26px; }
+    .faq-list {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 24px 20px;
+      box-shadow: 0 8px 20px rgba(255, 143, 0, 0.20);
+    }
+    .faq-list h2 {
+      margin: 0 0 18px 4px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-900);
+      letter-spacing: -0.02em;
+    }
+    details.faq {
+      background: var(--card);
+      border: 1px solid #E5E5E5;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    details.faq:last-child { margin-bottom: 0; }
+    details.faq summary {
+      cursor: pointer;
+      padding: 16px 18px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-900);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      letter-spacing: -0.02em;
+    }
+    details.faq summary::-webkit-details-marker { display: none; }
+    details.faq summary::after {
+      content: '';
+      width: 9px;
+      height: 9px;
+      border-right: 2px solid var(--text-400);
+      border-bottom: 2px solid var(--text-400);
+      transform: rotate(45deg);
+      transition: transform 0.2s;
+      margin-top: -3px;
+      flex-shrink: 0;
+      margin-left: 14px;
+    }
+    details.faq[open] summary::after {
+      transform: rotate(-135deg);
+      margin-top: 2px;
+    }
+    details.faq .faq-body {
+      padding: 0 18px 16px;
+      font-size: 13.5px;
+      color: var(--text-500);
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- 상단 흰색 영역 -->
+    <div class="top-white">
+      <div class="topbar">
+        <button class="back" onclick="history.back()" aria-label="뒤로">
+          <svg viewBox="0 0 24 24"><polyline points="15 6 9 12 15 18"/></svg>
+        </button>
+        <h1>시급 2배 챌린지</h1>
+      </div>
+
+      <!-- 히어로 (본인 진입 / 동료 진입 분기) -->
+      <section class="hero-head">
+        <!-- 본인 진입 -->
+        <h2 class="hero-title" id="hero-self" style="display:none;">
+          <span data-store>{매장명}</span><br>
+          <span data-nickname>{알바닉네임}</span> 알바님,<br>
+          <span class="accent">손님이 곧 방문</span>할 수 있어요
+          <span class="sub">미리 준비해두면 손님 응대가 빨라져요</span>
+        </h2>
+        <!-- 동료 진입 -->
+        <h2 class="hero-title" id="hero-coworker" style="display:none;">
+          <span data-store>{매장명}</span> 알바 <span class="accent">동료분</span>이신가요?
+          <span class="sub"><span data-nickname>{알바닉네임}</span> 알바님께서<br>도움을 요청하셨어요</span>
+        </h2>
+      </section>
+
+      <!-- 히어로 일러스트 -->
+      <div class="hero-illust" aria-hidden="true">
+        <svg viewBox="0 0 240 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bag-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#F0AC5A"/>
+              <stop offset="100%" stop-color="#D88735"/>
+            </linearGradient>
+            <linearGradient id="coin-grad-1" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFD84D"/>
+              <stop offset="100%" stop-color="#FFB800"/>
+            </linearGradient>
+            <linearGradient id="coin-grad-2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FF9D52"/>
+              <stop offset="100%" stop-color="#FF6B00"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="120" cy="200" rx="75" ry="8" fill="#000" opacity="0.10"/>
+          <path d="M62 88 Q62 76 76 76 L164 76 Q178 76 178 88 L186 184 Q186 200 168 200 L72 200 Q54 200 54 184 Z"
+                fill="url(#bag-grad)" stroke="#2A2A2A" stroke-width="2.8"/>
+          <rect x="92" y="62" width="56" height="18" rx="3" fill="#2A2A2A"/>
+          <path d="M98 76 L98 60 Q98 54 110 54 L130 54 Q142 54 142 60 L142 76"
+                fill="none" stroke="#2A2A2A" stroke-width="2.5" stroke-linejoin="round"/>
+          <circle cx="120" cy="140" r="32" fill="url(#coin-grad-1)" stroke="#2A2A2A" stroke-width="2.8"/>
+          <text x="120" y="152" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="38" font-weight="900" fill="#2A2A2A">₩</text>
+          <circle cx="42" cy="68" r="18" fill="url(#coin-grad-1)" stroke="#2A2A2A" stroke-width="2.5"/>
+          <text x="42" y="76" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="18" font-weight="900" fill="#2A2A2A">₩</text>
+          <circle cx="200" cy="48" r="14" fill="url(#coin-grad-2)" stroke="#2A2A2A" stroke-width="2.5"/>
+          <text x="200" y="54" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="13" font-weight="900" fill="#FFFFFF">₩</text>
+          <circle cx="218" cy="92" r="11" fill="url(#coin-grad-1)" stroke="#2A2A2A" stroke-width="2.2"/>
+          <text x="218" y="97" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="10" font-weight="900" fill="#2A2A2A">₩</text>
+          <circle cx="22" cy="120" r="10" fill="url(#coin-grad-2)" stroke="#2A2A2A" stroke-width="2.2"/>
+          <text x="22" y="125" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="9" font-weight="900" fill="#FFFFFF">₩</text>
+          <g fill="#FF6B00">
+            <circle cx="68" cy="40" r="3"/>
+            <circle cx="172" cy="32" r="3"/>
+            <circle cx="225" cy="140" r="2.5"/>
+            <circle cx="18" cy="170" r="2.5"/>
+            <circle cx="215" cy="180" r="2"/>
+          </g>
+          <path d="M30 30 L36 36 M30 36 L36 30" stroke="#FFB800" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M210 18 L216 24 M210 24 L216 18" stroke="#FFB800" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 본문 -->
+    <div class="content">
+
+      <!-- 동료 공유 카드 (본인 진입 시에만) -->
+      <section class="share-card" id="share-section" style="display:none;">
+        <h3>오늘 근무하지 않으신다면?</h3>
+        <p class="share-lead">
+          오늘 <strong data-store>{매장명}</strong>에 손님이 알바리카노 쿠폰을 받으러 방문할 거예요.<br>
+          <strong data-nickname>{알바닉네임}</strong> 알바님이 부재 중이면 손님도 쿠폰을 못 받고, 시급 <strong>1,500원</strong>도 받을 수 없어요.<br><br>
+          오늘 근무하는 동료에게 아래 링크를 공유하면, 동료가 대신 응대해드릴 수 있어요.
+        </p>
+
+        <div class="share-preview">
+          <p class="preview-label">공유하면 이런 메시지가 전송돼요</p>
+          <p class="preview-msg">
+            "<strong data-store>{매장명}</strong> 근무자님, 이 내용 확인해주세요!<br>
+            <strong data-nickname>{알바닉네임}</strong> 알바님께서 도움을 요청하셨어요."
+          </p>
+        </div>
+
+        <button type="button" class="share-btn" id="btn-share">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="18" cy="5" r="3" stroke="#FFFFFF" stroke-width="2"/>
+            <circle cx="6" cy="12" r="3" stroke="#FFFFFF" stroke-width="2"/>
+            <circle cx="18" cy="19" r="3" stroke="#FFFFFF" stroke-width="2"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          동료에게 공유하기
+        </button>
+      </section>
+
+      <!-- 케이스 선택 카드 (동료 진입 시에만) -->
+      <section class="case-card" id="case-select" style="display:none;">
+        <h3 class="card-title"><span data-nickname>{알바닉네임}</span>님의 동료분이 해주실 일은요!</h3>
+        <p class="card-sub">손님이 매장에서 첫 주문하면 적립금은 '<span data-nickname>{알바닉네임}</span>' 알바님에게 적립돼요.<br>어떻게 도와주실지 선택해주세요.</p>
+
+        <div class="case-option">
+          <div class="case-tag">CASE A</div>
+          <p class="case-title">'<span data-nickname>{알바닉네임}</span>' 알바님 대신 응대만 도와드릴게요</p>
+          <p class="case-desc">
+            '<span data-nickname>{알바닉네임}</span>' 알바님이 부재 시간이지만 손님 응대만 대신해드리는 경우예요.<br>
+            → 적립금은 '<span data-nickname>{알바닉네임}</span>' 알바님에게 적립<br>
+            → 동료분께는 적립금이 따로 가지 않아요
+          </p>
+          <button type="button" class="case-btn primary" id="btn-substitute">
+            '<span data-nickname>{알바닉네임}</span>' 알바 대신 응대할게요
+          </button>
+        </div>
+
+        <div class="case-option">
+          <div class="case-tag accent">CASE B</div>
+          <p class="case-title">저도 신청해서 직접 참여하고 싶어요</p>
+          <p class="case-desc">
+            동료분도 <strong>[시급 2배 챌린지]</strong>에 참여하시면 본인 코드로 손님을 응대해 본인 적립금을 받을 수 있어요.<br>
+            → 적립금이 동료분에게 적립
+          </p>
+          <button type="button" class="case-btn secondary" id="btn-apply">
+            제가 신청해서 할게요
+          </button>
+        </div>
+      </section>
+
+      <!-- 보상 안내 카드 (시급 2배 챌린지란?) -->
+      <section class="card reward-card">
+        <svg class="reward-mini" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="28" cy="50" rx="20" ry="3" fill="#000" opacity="0.08"/>
+          <ellipse cx="28" cy="42" rx="20" ry="6" fill="#FFB800" stroke="#2A2A2A" stroke-width="2"/>
+          <rect x="8" y="34" width="40" height="10" fill="#FFB800"/>
+          <line x1="8" y1="34" x2="8" y2="44" stroke="#2A2A2A" stroke-width="2"/>
+          <line x1="48" y1="34" x2="48" y2="44" stroke="#2A2A2A" stroke-width="2"/>
+          <ellipse cx="28" cy="34" rx="20" ry="6" fill="#FFD84D" stroke="#2A2A2A" stroke-width="2"/>
+          <circle cx="28" cy="18" r="14" fill="#FFD84D" stroke="#2A2A2A" stroke-width="2"/>
+          <text x="28" y="24" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="16" font-weight="900" fill="#2A2A2A">₩</text>
+        </svg>
+        <h3>시급 2배 챌린지란?</h3>
+        <p class="sub">모든 비용은 패스오더가 전액 부담해요</p>
+        <div class="reward-row">
+          <span class="reward-num">1</span>
+          <div class="reward-text">손님에게 영수증 쿠폰 전달하고</div>
+        </div>
+        <div class="reward-row">
+          <span class="reward-num">2</span>
+          <div class="reward-text">손님이 패스오더 첫 주문 완료 시</div>
+        </div>
+        <div class="reward-row">
+          <span class="reward-num">3</span>
+          <div class="reward-text"><span class="strong">손님 한 명당 1,500원</span> 현금 지급</div>
+        </div>
+      </section>
+
+      <!-- 절차 (미등록 - 4단계) -->
+      <section class="outer-card" id="full-flow" style="display:none;">
+        <div class="outer-card-head">
+          <h3 class="outer-card-title" id="full-flow-title">처음이라면 4단계로 끝</h3>
+          <p class="outer-card-sub">다음부터는 30초면 출력할 수 있어요</p>
+        </div>
+
+        <div class="inner-card">
+          <div class="step-body">
+            <div class="step-content">
+              <div class="step-header">
+                <span class="step-num">1</span>
+                <h4 class="step-title">점주용 프로그램 열기</h4>
+              </div>
+              <p class="step-desc">매장 패스오더 점주용 프로그램을 실행해 주세요</p>
+            </div>
+            <div class="step-mini-icon">
+              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="6" width="28" height="20" rx="2" fill="#FFFFFF" stroke="#2A2A2A" stroke-width="2"/>
+                <rect x="6" y="8" width="24" height="14" fill="#FFE9D6"/>
+                <rect x="13" y="28" width="10" height="2" fill="#2A2A2A"/>
+                <rect x="9" y="30" width="18" height="2" rx="1" fill="#2A2A2A"/>
+                <circle cx="13" cy="15" r="2" fill="#FF6B00"/>
+                <rect x="18" y="14" width="8" height="2" fill="#FF6B00"/>
+                <rect x="18" y="17" width="6" height="2" fill="#FF6B00" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-card">
+          <div class="step-body">
+            <div class="step-content">
+              <div class="step-header">
+                <span class="step-num">2</span>
+                <h4 class="step-title">시급 2배 챌린지 탭 진입</h4>
+              </div>
+              <p class="step-desc">
+                <strong>[이벤트 관리]</strong> → <strong>[시급 2배 챌린지]</strong> 클릭
+              </p>
+            </div>
+            <div class="step-mini-icon">
+              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="14" cy="14" r="9" fill="none" stroke="#2A2A2A" stroke-width="2"/>
+                <circle cx="14" cy="14" r="3" fill="#FF6B00"/>
+                <path d="M22 22 L30 30" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round"/>
+                <path d="M22 22 L26 22 M22 22 L22 26" stroke="#2A2A2A" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-card">
+          <div class="step-body">
+            <div class="step-content">
+              <div class="step-header">
+                <span class="step-num">3</span>
+                <h4 class="step-title">참여자 등록</h4>
+              </div>
+              <p class="step-desc">
+                <strong>[참여자 등록]</strong> 클릭 후 아래 코드 입력
+              </p>
+            </div>
+            <div class="step-mini-icon">
+              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="18" r="6" fill="none" stroke="#2A2A2A" stroke-width="2.5"/>
+                <circle cx="12" cy="18" r="2" fill="#FF6B00"/>
+                <path d="M18 18 L30 18 L30 22 L26 22 L26 26" fill="none" stroke="#2A2A2A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M28 18 L28 14" stroke="#2A2A2A" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="code-callout">
+            <div>
+              <p class="code-label"><span data-nickname>{알바닉네임}</span>님 참여 코드</p>
+              <p class="code-val" data-code>{참여코드}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-card">
+          <div class="step-body">
+            <div class="step-content">
+              <div class="step-header">
+                <span class="step-num">4</span>
+                <h4 class="step-title">영수증 쿠폰 출력</h4>
+              </div>
+              <p class="step-desc">등록된 '<span data-nickname>{알바닉네임}</span>'님 칸에서 <strong>[출력]</strong> 버튼을 눌러 영수증을 미리 준비해두세요</p>
+            </div>
+            <div class="step-mini-icon">
+              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 6 L26 6 L26 30 L22 27 L18 30 L14 27 L10 30 L8 27 Z" fill="#FFFFFF" stroke="#2A2A2A" stroke-width="2" stroke-linejoin="round"/>
+                <line x1="12" y1="12" x2="22" y2="12" stroke="#2A2A2A" stroke-width="1.5"/>
+                <line x1="12" y1="16" x2="22" y2="16" stroke="#2A2A2A" stroke-width="1.5"/>
+                <line x1="12" y1="20" x2="18" y2="20" stroke="#FF6B00" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 절차 (등록 - 출력만) -->
+      <section class="outer-card" id="quick-flow" style="display:none;">
+        <div class="outer-card-head">
+          <h3 class="outer-card-title">30초로 끝나요</h3>
+          <p class="outer-card-sub">이미 참여 코드를 등록하셨어요</p>
+        </div>
+
+        <div class="inner-card">
+          <div class="step-body">
+            <div class="step-content">
+              <div class="step-header">
+                <span class="step-num">1</span>
+                <h4 class="step-title">점주용 프로그램 열기</h4>
+              </div>
+              <p class="step-desc">매장 패스오더 점주용 프로그램을 실행해 주세요</p>
+            </div>
+            <div class="step-mini-icon">
+              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="6" width="28" height="20" rx="2" fill="#FFFFFF" stroke="#2A2A2A" stroke-width="2"/>
+                <rect x="6" y="8" width="24" height="14" fill="#FFE9D6"/>
+                <rect x="13" y="28" width="10" height="2" fill="#2A2A2A"/>
+                <rect x="9" y="30" width="18" height="2" rx="1" fill="#2A2A2A"/>
+                <circle cx="13" cy="15" r="2" fill="#FF6B00"/>
+                <rect x="18" y="14" width="8" height="2" fill="#FF6B00"/>
+                <rect x="18" y="17" width="6" height="2" fill="#FF6B00" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-card">
+          <div class="step-body">
+            <div class="step-content">
+              <div class="step-header">
+                <span class="step-num">2</span>
+                <h4 class="step-title">시급 2배 챌린지 탭 진입</h4>
+              </div>
+              <p class="step-desc">
+                <strong>[이벤트 관리]</strong> → <strong>[시급 2배 챌린지]</strong> 클릭
+              </p>
+            </div>
+            <div class="step-mini-icon">
+              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="14" cy="14" r="9" fill="none" stroke="#2A2A2A" stroke-width="2"/>
+                <circle cx="14" cy="14" r="3" fill="#FF6B00"/>
+                <path d="M22 22 L30 30" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round"/>
+                <path d="M22 22 L26 22 M22 22 L22 26" stroke="#2A2A2A" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-card">
+          <div class="step-body">
+            <div class="step-content">
+              <div class="step-header">
+                <span class="step-num">3</span>
+                <h4 class="step-title">영수증 쿠폰 출력</h4>
+              </div>
+              <p class="step-desc">'<span data-nickname>{알바닉네임}</span>' 닉네임 옆 <strong>[출력]</strong> 버튼을 눌러 영수증을 미리 준비해두세요</p>
+            </div>
+            <div class="step-mini-icon">
+              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 6 L26 6 L26 30 L22 27 L18 30 L14 27 L10 30 L8 27 Z" fill="#FFFFFF" stroke="#2A2A2A" stroke-width="2" stroke-linejoin="round"/>
+                <line x1="12" y1="12" x2="22" y2="12" stroke="#2A2A2A" stroke-width="1.5"/>
+                <line x1="12" y1="16" x2="22" y2="16" stroke="#2A2A2A" stroke-width="1.5"/>
+                <line x1="12" y1="20" x2="18" y2="20" stroke="#FF6B00" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 손님 응대 가이드 (공통) -->
+      <section class="respond-card">
+        <h3>손님이 [쿠폰 안내 페이지]를 보여줄 때</h3>
+        <ul class="respond-list">
+          <li><strong>위 방법</strong>으로 영수증 쿠폰을 출력해서 전달해주세요</li>
+          <li>당시에 방법이 생각나지 않으신다면, 손님께서 보여주시는 웹페이지의 <strong>QR 코드를 인식</strong>해서 출력하는 방법을 확인할 수 있어요</li>
+        </ul>
+      </section>
+
+      <!-- 알바 칭찬 박스 (동료 진입 시에만) -->
+      <section class="praise-card" id="praise-section" style="display:none;">
+        <p class="praise-title">매장 사장님께 안내드려요</p>
+        <p>
+          '<span data-nickname>{알바닉네임}</span>' 알바님은 매장 홍보와 손님 유치를 위해 
+          직접 패스오더 <strong>[시급 2배 챌린지]</strong>에 참여하셨어요.
+        </p>
+        <p>
+          쿠폰 혜택은 패스오더가 100% 부담하니, 매장 추가 비용 부담은 없어요.
+        </p>
+      </section>
+
+      <!-- 하단 강조 -->
+      <section class="highlight-card">
+        <svg class="highlight-mini" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="32" cy="58" rx="20" ry="3" fill="#000" opacity="0.10"/>
+          <rect x="22" y="48" width="20" height="6" rx="1" fill="#E89C4A" stroke="#2A2A2A" stroke-width="2"/>
+          <rect x="26" y="44" width="12" height="6" fill="#FFB800" stroke="#2A2A2A" stroke-width="2"/>
+          <path d="M18 14 L46 14 L44 36 Q44 44 32 44 Q20 44 20 36 Z" fill="#FFD84D" stroke="#2A2A2A" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M18 18 L12 18 Q8 18 8 22 L8 26 Q8 30 12 30 L18 30" fill="none" stroke="#2A2A2A" stroke-width="2.5"/>
+          <path d="M46 18 L52 18 Q56 18 56 22 L56 26 Q56 30 52 30 L46 30" fill="none" stroke="#2A2A2A" stroke-width="2.5"/>
+          <text x="32" y="34" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="14" font-weight="900" fill="#2A2A2A">★</text>
+          <circle cx="8" cy="10" r="2" fill="#FF6B00"/>
+          <circle cx="56" cy="8" r="2" fill="#FFB800"/>
+          <circle cx="58" cy="40" r="1.5" fill="#FF6B00"/>
+        </svg>
+        <div class="label">손님이 패스오더 첫 주문 완료하면</div>
+        <div class="big">손님 한 명당 1,500원 지급</div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq-section">
+        <div class="faq-list">
+          <h2>자주 묻는 질문</h2>
+          <details class="faq">
+            <summary>리워드가 어떻게 지급되나요?</summary>
+            <div class="faq-body">
+              고객이 영수증 쿠폰을 통해 패스오더 앱으로 첫 주문을 하면 1건으로 인정되어 1,500원이 지급됩니다.
+            </div>
+          </details>
+          <details class="faq">
+            <summary>리워드가 어떤 형식으로 지급되나요?</summary>
+            <div class="faq-body">
+              패스오더 앱 내에 리워드가 지급됩니다. 이후 실제 현금으로 출금하실 수 있습니다.
+            </div>
+          </details>
+          <details class="faq">
+            <summary>출금은 어떻게 하나요?</summary>
+            <div class="faq-body">
+              패스오더 앱을 회원가입 한 뒤, 패스오더 앱 내에서 패스지갑에 본인 명의 계좌를 등록하면 출금 가능합니다.
+            </div>
+          </details>
+          <details class="faq">
+            <summary>손님한테 쿠폰을 어떻게 전달드려요?</summary>
+            <div class="faq-body">
+              음료를 건네줄 때, 매장에서 진행 중인 이벤트임을 알리면서 쿠폰을 같이 전달해주시면 됩니다.<br><br>
+              안내가 어려운 경우에는 손님이 픽업하는 음료 컵홀더에 끼워 넣어 전달하는 방법도 있기에, 부담 갖지 말고 참여해 보세요!
+            </div>
+          </details>
+          <details class="faq">
+            <summary>영수증 쿠폰은 어떻게 발급받나요?</summary>
+            <div class="faq-body">
+              [POS 내 패스오더 점주용 프로그램]에서 발급받으실 수 있어요.<br>
+              [이벤트 관리 → 시급 2배 챌린지 → 코드 등록 → 영수증 출력] 절차이며, 간단하게 발급할 수 있어요.
+            </div>
+          </details>
+          <details class="faq" id="faq-code-error" style="display:none;">
+            <summary>참여 코드 등록이 안 돼요</summary>
+            <div class="faq-body">
+              참여 코드는 알바님 본인 신청 시 발급된 고유 코드입니다. 위 코드 박스의 코드를 정확히 입력했는지 확인해 주세요. 그래도 오류가 뜬다면, 패스오더 알바지원팀에 문의해 주세요.
+            </div>
+          </details>
+          <details class="faq">
+            <summary>점주용 프로그램이 매장에 없어요</summary>
+            <div class="faq-body">
+              사장님께 점주용 프로그램 설치를 요청드리거나, 패스오더 알바지원팀에 문의해 주세요.
+            </div>
+          </details>
+          <details class="faq">
+            <summary>영수증 출력이 안 돼요</summary>
+            <div class="faq-body">
+              매장의 영수증 프린터 연결 상태를 확인하고, 점주용 프로그램을 재시작해 보세요. 그래도 오류가 뜬다면, 패스오더 알바지원팀에 문의해 주세요.
+            </div>
+          </details>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- 토스트 컨테이너 -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+    (function() {
+      // ══════════════════════════════════════════════════
+      //  Apps Script 트래킹 URL (배포 후 교체 필요)
+      // ══════════════════════════════════════════════════
+      const TRACKING_URL = 'https://script.google.com/macros/s/AKfycby_fA79-fH1NEu1XgKO7kUi33w_Smn31gLeX6hmCcDoFk2Ab8b43vZnF6oeNNCi1z8x6Q/exec';
+
+      // ─── URL 파라미터 파싱 ───
+      const params = new URLSearchParams(window.location.search);
+      const storeName = params.get('store_name') || '카페 미정';
+      const nickname  = params.get('nickname')   || '닉네임';
+      const code      = params.get('code')       || '0000-0000';
+      const from      = params.get('from')       || 'direct';
+
+      // segment 파라미터: 한글 그대로 사용
+      // - '미등록' → 미등록 페이지 (4단계 절차)
+      // - '미시작', '활동 중', '미활동' → 등록 페이지 (3단계 절차)
+      const segment = params.get('segment') || params.get('status') || '미등록';
+      const isUnregistered = (segment === '미등록');
+      const isCoworker = (from === 'shared');
+
+      // ─── 세션/사용자 ID ───
+      const sessionId = 'S_' + Date.now() + '_' + Math.random().toString(36).substr(2, 8);
+      let userId = '';
+      try {
+        userId = localStorage.getItem('po_user_id');
+        if (!userId) {
+          userId = 'U_' + Date.now() + '_' + Math.random().toString(36).substr(2, 8);
+          localStorage.setItem('po_user_id', userId);
+        }
+      } catch (e) {
+        userId = 'U_temp_' + Math.random().toString(36).substr(2, 8);
+      }
+
+      // ─── 변수 주입 ───
+      document.querySelectorAll('[data-store]').forEach(el => { el.textContent = storeName; });
+      document.querySelectorAll('[data-nickname]').forEach(el => { el.textContent = nickname; });
+      document.querySelectorAll('[data-code]').forEach(el => { el.textContent = code; });
+
+      // ─── 본인/동료 분기 표시 ───
+      if (isCoworker) {
+        // 동료 진입
+        document.getElementById('hero-coworker').style.display = '';
+        document.getElementById('case-select').style.display = '';
+        document.getElementById('praise-section').style.display = '';
+        // 동료에게는 공유 버튼 숨김
+      } else {
+        // 본인 진입
+        document.getElementById('hero-self').style.display = '';
+        document.getElementById('share-section').style.display = '';
+      }
+
+      // ─── 등록/미등록 분기 표시 ───
+      if (isUnregistered) {
+        document.getElementById('full-flow').style.display = '';
+        document.getElementById('faq-code-error').style.display = '';
+        // 동료가 미등록 알바 대신할 때 제목 변경
+        if (isCoworker) {
+          document.getElementById('full-flow-title').textContent = nickname + '님으로부터 부탁받은 일은요!';
+        }
+      } else {
+        document.getElementById('quick-flow').style.display = '';
+        // 동료가 등록 알바 대신할 때 제목 변경
+        if (isCoworker) {
+          const quickFlowHeader = document.querySelector('#quick-flow .outer-card-title');
+          quickFlowHeader.textContent = nickname + '님으로부터 부탁받은 일은요!';
+        }
+      }
+
+      // ─── 트래킹 함수 ───
+      function track(eventName, extra) {
+        if (!TRACKING_URL) {
+          console.log('[track] TRACKING_URL not set, skip', eventName);
+          return;
+        }
+        const payload = {
+          page: 'prepare',
+          sessionId: sessionId,
+          userId: userId,
+          event: eventName,
+          storeName: storeName,
+          nickname: nickname,
+          code: code,
+          segment: segment,
+          from: from,
+          referrer: document.referrer || '',
+          userAgent: navigator.userAgent || '',
+          timestamp: new Date().toISOString(),
+          extra: extra || {}
+        };
+        const data = JSON.stringify(payload);
+
+        let sent = false;
+        try {
+          if (navigator.sendBeacon) {
+            const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
+            sent = navigator.sendBeacon(TRACKING_URL, blob);
+          }
+        } catch (e) { /* silent */ }
+
+        if (!sent) {
+          try {
+            fetch(TRACKING_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              body: data,
+              keepalive: true
+            }).catch(() => { /* silent */ });
+          } catch (e) { /* silent */ }
+        }
+      }
+
+      // ─── 이벤트: 페이지 진입 ───
+      track('PAGE_VIEW');
+
+      // ─── 토스트 표시 ───
+      function showToast(title, message, duration) {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerHTML = '<div class="toast-title">' + title + '</div>' +
+                          '<div>' + message + '</div>';
+        container.appendChild(toast);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => toast.classList.add('show'));
+        });
+        setTimeout(() => {
+          toast.classList.remove('show');
+          setTimeout(() => toast.remove(), 300);
+        }, duration || 4000);
+      }
+
+      // ─── 버튼: CASE A 대신 응대할게요 ───
+      const btnSubstitute = document.getElementById('btn-substitute');
+      if (btnSubstitute) {
+        btnSubstitute.addEventListener('click', function() {
+          track('COWORKER_SUBSTITUTE_CLICK');
+          showToast(
+            '확인되었어요',
+            "'" + nickname + "' 알바님께 알림이 전달돼요.\n동료분이 대신 응대하신다고 안내드릴게요.",
+            5000
+          );
+        });
+      }
+
+      // ─── 버튼: CASE B 제가 신청해서 할게요 ───
+      const APPLY_URL = 'https://passorder.kr/Oa8B0jHM';
+      const REDIRECT_PAGE = 'redirect.html';
+      const btnApply = document.getElementById('btn-apply');
+      if (btnApply) {
+        btnApply.addEventListener('click', function() {
+          track('COWORKER_SIGNUP_CLICK');
+          const target = REDIRECT_PAGE + '?next=' + encodeURIComponent(APPLY_URL);
+          window.location.href = target;
+        });
+      }
+
+      // ─── 버튼: 동료에게 공유하기 ───
+      const btnShare = document.getElementById('btn-share');
+      if (btnShare) {
+        btnShare.addEventListener('click', async function() {
+          track('SHARE_BUTTON_CLICK');
+
+          const shareUrl = window.location.origin + window.location.pathname +
+            '?store_name=' + encodeURIComponent(storeName) +
+            '&nickname='   + encodeURIComponent(nickname) +
+            '&code='       + encodeURIComponent(code) +
+            '&segment='    + encodeURIComponent(segment) +
+            '&from=shared';
+
+          const shareText = storeName + ' 근무자님, 이 내용 확인해주세요!\n\n' +
+                            nickname + ' 알바님께서 도움을 요청하셨어요.';
+
+          if (navigator.share) {
+            try {
+              await navigator.share({
+                title: storeName + ' 시급 2배 챌린지 안내',
+                text: shareText,
+                url: shareUrl
+              });
+            } catch (e) {
+              // 사용자 취소
+            }
+          } else {
+            try {
+              await navigator.clipboard.writeText(shareText + '\n' + shareUrl);
+              showToast('복사되었어요', '카톡으로 동료에게 보내주세요!', 4000);
+            } catch (e) {
+              showToast('공유 실패', '링크를 직접 복사해주세요.', 3000);
+            }
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
