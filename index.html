@@ -7,8 +7,8 @@
   <title>시급 2배 챌린지</title>
 
   <!-- 메타태그 (공유 시 미리보기) -->
-  <meta property="og:title" content="시급 2배 챌린지 안내">
-  <meta property="og:description" content="패스오더 가맹점 알바생을 위한 이벤트 안내 페이지입니다">
+  <meta property="og:title" content="[시급 2배 챌린지] 동료분의 도움이 필요해요">
+  <meta property="og:description" content="오늘 매장에 손님이 알바리카노 쿠폰을 받으러 방문할 예정입니다. 자세한 내용을 확인해주세요.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -785,7 +785,7 @@
         <!-- 동료 진입 -->
         <h2 class="hero-title" id="hero-coworker" style="display:none;">
           <span data-store>{매장명}</span> 알바 <span class="accent">동료분</span>이신가요?
-          <span class="sub"><span data-nickname>{알바닉네임}</span> 알바님께서<br>도움을 요청하셨어요</span>
+          <span class="sub"><span data-nickname>{알바닉네임}</span> 알바께서<br>도움을 요청하셨어요</span>
         </h2>
       </section>
 
@@ -843,15 +843,17 @@
         <h3>오늘 근무하지 않으신다면?</h3>
         <p class="share-lead">
           오늘 <strong data-store>{매장명}</strong>에 손님이 알바리카노 쿠폰을 받으러 방문할 거예요.<br>
-          <strong data-nickname>{알바닉네임}</strong> 알바님이 부재 중이면 손님도 쿠폰을 못 받고, 시급 <strong>1,500원</strong>도 받을 수 없어요.<br><br>
+          <strong data-nickname>{알바닉네임}</strong> 알바이 부재 중이면 손님도 쿠폰을 못 받고, 시급 <strong>1,500원</strong>도 받을 수 없어요.<br><br>
           오늘 근무하는 동료에게 아래 링크를 공유하면, 동료가 대신 응대해드릴 수 있어요.
         </p>
 
         <div class="share-preview">
           <p class="preview-label">공유하면 이런 메시지가 전송돼요</p>
           <p class="preview-msg">
-            "<strong data-store>{매장명}</strong> 근무자님, 이 내용 확인해주세요!<br>
-            <strong data-nickname>{알바닉네임}</strong> 알바님께서 도움을 요청하셨어요."
+            "[<strong data-store>{매장명}</strong>] 근무자님께 도움 요청드려요!<br><br>
+            <strong data-nickname>{알바닉네임}</strong> 알바가 부재 중일 때<br>
+            손님 응대를 부탁드려요.<br>
+            안내 페이지를 확인해주세요."
           </p>
         </div>
 
@@ -870,14 +872,14 @@
       <!-- 케이스 선택 카드 (동료 진입 시에만) -->
       <section class="case-card" id="case-select" style="display:none;">
         <h3 class="card-title"><span data-nickname>{알바닉네임}</span>님의 동료분이 해주실 일은요!</h3>
-        <p class="card-sub">손님이 매장에서 첫 주문하면 적립금은 '<span data-nickname>{알바닉네임}</span>' 알바님에게 적립돼요.<br>어떻게 도와주실지 선택해주세요.</p>
+        <p class="card-sub">손님이 매장에서 첫 주문하면 적립금은 '<span data-nickname>{알바닉네임}</span>' 알바에게 적립돼요.<br>아래에서 동료분의 상황을 알려주시면, 그에 맞는 진행 방법을 안내해드릴게요.</p>
 
         <div class="case-option">
           <div class="case-tag">CASE A</div>
-          <p class="case-title">'<span data-nickname>{알바닉네임}</span>' 알바님 대신 응대만 도와드릴게요</p>
+          <p class="case-title">'<span data-nickname>{알바닉네임}</span>' 알바 대신 응대만 도와드릴게요</p>
           <p class="case-desc">
-            '<span data-nickname>{알바닉네임}</span>' 알바님이 부재 시간이지만 손님 응대만 대신해드리는 경우예요.<br>
-            → 적립금은 '<span data-nickname>{알바닉네임}</span>' 알바님에게 적립<br>
+            '<span data-nickname>{알바닉네임}</span>' 알바이 부재 시간이지만 손님 응대만 대신해드리는 경우예요.<br>
+            → 적립금은 '<span data-nickname>{알바닉네임}</span>' 알바에게 적립<br>
             → 동료분께는 적립금이 따로 가지 않아요
           </p>
           <button type="button" class="case-btn primary" id="btn-substitute">
@@ -1113,7 +1115,7 @@
       <section class="praise-card" id="praise-section" style="display:none;">
         <p class="praise-title">매장 사장님께 안내드려요</p>
         <p>
-          '<span data-nickname>{알바닉네임}</span>' 알바님은 매장 홍보와 손님 유치를 위해 
+          '<span data-nickname>{알바닉네임}</span>' 알바은 매장 홍보와 손님 유치를 위해 
           직접 패스오더 <strong>[시급 2배 챌린지]</strong>에 참여하셨어요.
         </p>
         <p>
@@ -1178,7 +1180,7 @@
           <details class="faq" id="faq-code-error" style="display:none;">
             <summary>참여 코드 등록이 안 돼요</summary>
             <div class="faq-body">
-              참여 코드는 알바님 본인 신청 시 발급된 고유 코드입니다. 위 코드 박스의 코드를 정확히 입력했는지 확인해 주세요. 그래도 오류가 뜬다면, 패스오더 알바지원팀에 문의해 주세요.
+              참여 코드는 알바 본인 신청 시 발급된 고유 코드입니다. 위 코드 박스의 코드를 정확히 입력했는지 확인해 주세요. 그래도 오류가 뜬다면, 패스오더 알바지원팀에 문의해 주세요.
             </div>
           </details>
           <details class="faq">
@@ -1342,7 +1344,7 @@
           track('COWORKER_SUBSTITUTE_CLICK');
           showToast(
             '확인되었어요',
-            "'" + nickname + "' 알바님께 알림이 전달돼요.\n동료분이 대신 응대하신다고 안내드릴게요.",
+            "'" + nickname + "' 알바께 알림이 전달돼요.\n동료분이 대신 응대하신다고 안내드릴게요.",
             5000
           );
         });
@@ -1355,7 +1357,9 @@
       if (btnApply) {
         btnApply.addEventListener('click', function() {
           track('COWORKER_SIGNUP_CLICK');
-          const target = REDIRECT_PAGE + '?next=' + encodeURIComponent(APPLY_URL);
+          const target = REDIRECT_PAGE +
+            '?next='       + encodeURIComponent(APPLY_URL) +
+            '&store_name=' + encodeURIComponent(storeName);
           window.location.href = target;
         });
       }
@@ -1373,13 +1377,13 @@
             '&segment='    + encodeURIComponent(segment) +
             '&from=shared';
 
-          const shareText = storeName + ' 근무자님, 이 내용 확인해주세요!\n\n' +
-                            nickname + ' 알바님께서 도움을 요청하셨어요.';
+          const shareText = '[' + storeName + '] 근무자님께 도움 요청드려요!\n\n' +
+                            nickname + ' 알바가 부재 중일 때 손님 응대를 부탁드려요.\n안내 페이지를 확인해주세요.';
 
           if (navigator.share) {
             try {
               await navigator.share({
-                title: storeName + ' 시급 2배 챌린지 안내',
+                title: '[시급 2배 챌린지] ' + nickname + ' 알바의 도움 요청',
                 text: shareText,
                 url: shareUrl
               });
