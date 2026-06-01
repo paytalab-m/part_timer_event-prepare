@@ -1232,9 +1232,9 @@
   <script>
     (function() {
       // ══════════════════════════════════════════════════
-      //  Apps Script 트래킹 URL (배포 후 교체 필요)
+      //  Apps Script 트래킹 URL
       // ══════════════════════════════════════════════════
-      const TRACKING_URL = 'https://script.google.com/macros/s/AKfycby_fA79-fH1NEu1XgKO7kUi33w_Smn31gLeX6hmCcDoFk2Ab8b43vZnF6oeNNCi1z8x6Q/exec';
+      const TRACKING_URL = 'https://script.google.com/macros/s/AKfycbxAsknFmNhvYg-mQq2oBjiIiR_Ev3ivFLmwLD_4XqnM6j_pkCNDqP_vzmLOBdn8qR7zRA/exec';
 
       // ─── URL 파라미터 파싱 ───
       const params = new URLSearchParams(window.location.search);
@@ -1242,10 +1242,13 @@
       const nickname  = params.get('nickname')   || '닉네임';
       const code      = params.get('code')       || '0000-0000';
       const from      = params.get('from')       || 'direct';
+      // 캠페인 레퍼럴 (트래킹만)
+      const msgCode         = params.get('msg_code')         || '';
+      const customerSegment = params.get('customer_segment') || '';
+      const tier            = params.get('tier')             || '';
+      const batch           = params.get('batch')            || '';
 
       // segment 파라미터: 한글 그대로 사용
-      // - '미등록' → 미등록 페이지 (4단계 절차)
-      // - '미시작', '활동 중', '미활동' → 등록 페이지 (3단계 절차)
       const segment = params.get('segment') || params.get('status') || '미등록';
       const isUnregistered = (segment === '미등록');
       const isCoworker = (from === 'shared');
@@ -1270,13 +1273,10 @@
 
       // ─── 본인/동료 분기 표시 ───
       if (isCoworker) {
-        // 동료 진입
         document.getElementById('hero-coworker').style.display = '';
         document.getElementById('case-select').style.display = '';
         document.getElementById('praise-section').style.display = '';
-        // 동료에게는 공유 버튼 숨김
       } else {
-        // 본인 진입
         document.getElementById('hero-self').style.display = '';
         document.getElementById('share-section').style.display = '';
       }
@@ -1285,13 +1285,11 @@
       if (isUnregistered) {
         document.getElementById('full-flow').style.display = '';
         document.getElementById('faq-code-error').style.display = '';
-        // 동료가 미등록 알바 대신할 때 제목 변경
         if (isCoworker) {
           document.getElementById('full-flow-title').textContent = nickname + '님으로부터 부탁받은 일은요!';
         }
       } else {
         document.getElementById('quick-flow').style.display = '';
-        // 동료가 등록 알바 대신할 때 제목 변경
         if (isCoworker) {
           const quickFlowHeader = document.querySelector('#quick-flow .outer-card-title');
           quickFlowHeader.textContent = nickname + '님으로부터 부탁받은 일은요!';
@@ -1314,6 +1312,10 @@
           code: code,
           segment: segment,
           from: from,
+          msgCode: msgCode,
+          customerSegment: customerSegment,
+          tier: tier,
+          batch: batch,
           referrer: document.referrer || '',
           userAgent: navigator.userAgent || '',
           timestamp: new Date().toISOString(),
@@ -1369,7 +1371,7 @@
           track('COWORKER_SUBSTITUTE_CLICK');
           showToast(
             '확인되었어요',
-            "'" + nickname + "' 알바께 알림이 전달돼요.\n동료분이 대신 응대하신다고 안내드릴게요.",
+            "'" + nickname + "' 알바께 알림이 전달돼요.\\n동료분이 대신 응대하신다고 안내드릴게요.",
             5000
           );
         });
@@ -1382,9 +1384,14 @@
       if (btnApply) {
         btnApply.addEventListener('click', function() {
           track('COWORKER_SIGNUP_CLICK');
-          const target = REDIRECT_PAGE +
+          let target = REDIRECT_PAGE +
             '?next='       + encodeURIComponent(APPLY_URL) +
             '&store_name=' + encodeURIComponent(storeName);
+          // 레퍼럴도 전달
+          if (msgCode)         target += '&msg_code=' + encodeURIComponent(msgCode);
+          if (customerSegment) target += '&customer_segment=' + encodeURIComponent(customerSegment);
+          if (tier)            target += '&tier=' + encodeURIComponent(tier);
+          if (batch)           target += '&batch=' + encodeURIComponent(batch);
           window.location.href = target;
         });
       }
@@ -1395,15 +1402,20 @@
         btnShare.addEventListener('click', async function() {
           track('SHARE_BUTTON_CLICK');
 
-          const shareUrl = window.location.origin + window.location.pathname +
+          let shareUrl = window.location.origin + window.location.pathname +
             '?store_name=' + encodeURIComponent(storeName) +
             '&nickname='   + encodeURIComponent(nickname) +
             '&code='       + encodeURIComponent(code) +
             '&segment='    + encodeURIComponent(segment) +
             '&from=shared';
+          // 레퍼럴도 함께 공유
+          if (msgCode)         shareUrl += '&msg_code=' + encodeURIComponent(msgCode);
+          if (customerSegment) shareUrl += '&customer_segment=' + encodeURIComponent(customerSegment);
+          if (tier)            shareUrl += '&tier=' + encodeURIComponent(tier);
+          if (batch)           shareUrl += '&batch=' + encodeURIComponent(batch);
 
-          const shareText = '[' + storeName + '] 근무자님께 도움 요청드려요!\n\n' +
-                            nickname + ' 알바가 부재 중일 때 손님 응대를 부탁드려요.\n안내 페이지를 확인해주세요.';
+          const shareText = '[' + storeName + '] 근무자님께 도움 요청드려요!\\n\\n' +
+                            nickname + ' 알바가 부재 중일 때 손님 응대를 부탁드려요.\\n안내 페이지를 확인해주세요.';
 
           if (navigator.share) {
             try {
@@ -1417,7 +1429,7 @@
             }
           } else {
             try {
-              await navigator.clipboard.writeText(shareText + '\n' + shareUrl);
+              await navigator.clipboard.writeText(shareText + '\\n' + shareUrl);
               showToast('복사되었어요', '카톡으로 동료에게 보내주세요!', 4000);
             } catch (e) {
               showToast('공유 실패', '링크를 직접 복사해주세요.', 3000);
