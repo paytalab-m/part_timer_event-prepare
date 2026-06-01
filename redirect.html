@@ -252,9 +252,79 @@
 
   <script>
     (function() {
+      // ══════════════════════════════════════════════════
+      //  Apps Script 트래킹 URL
+      // ══════════════════════════════════════════════════
+      const TRACKING_URL = 'https://script.google.com/macros/s/AKfycbxAsknFmNhvYg-mQq2oBjiIiR_Ev3ivFLmwLD_4XqnM6j_pkCNDqP_vzmLOBdn8qR7zRA/exec';
+
       const params = new URLSearchParams(window.location.search);
       const nextUrl = params.get('next') || 'https://passorder.kr/Oa8B0jHM';
       const storeName = params.get('store_name') || '';
+      // 캠페인 레퍼럴 (트래킹만, prepare 시트로 동일하게 기록)
+      const msgCode         = params.get('msg_code')         || '';
+      const customerSegment = params.get('customer_segment') || '';
+      const tier            = params.get('tier')             || '';
+      const batch           = params.get('batch')            || '';
+
+      // ─── 세션/사용자 ID ───
+      const sessionId = 'S_' + Date.now() + '_' + Math.random().toString(36).substr(2, 8);
+      let userId = '';
+      try {
+        userId = localStorage.getItem('po_user_id');
+        if (!userId) {
+          userId = 'U_' + Date.now() + '_' + Math.random().toString(36).substr(2, 8);
+          localStorage.setItem('po_user_id', userId);
+        }
+      } catch (e) {
+        userId = 'U_temp_' + Math.random().toString(36).substr(2, 8);
+      }
+
+      // ─── 트래킹 함수 (prepare 시트로 기록, from=redirect로 구분) ───
+      function track(eventName, extra) {
+        if (!TRACKING_URL) return;
+        const payload = {
+          page: 'prepare',
+          sessionId: sessionId,
+          userId: userId,
+          event: eventName,
+          storeName: storeName,
+          nickname: '',
+          code: '',
+          segment: '',
+          from: 'redirect',
+          msgCode: msgCode,
+          customerSegment: customerSegment,
+          tier: tier,
+          batch: batch,
+          referrer: document.referrer || '',
+          userAgent: navigator.userAgent || '',
+          timestamp: new Date().toISOString(),
+          extra: extra || {}
+        };
+        const data = JSON.stringify(payload);
+
+        let sent = false;
+        try {
+          if (navigator.sendBeacon) {
+            const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
+            sent = navigator.sendBeacon(TRACKING_URL, blob);
+          }
+        } catch (e) { /* silent */ }
+
+        if (!sent) {
+          try {
+            fetch(TRACKING_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              body: data,
+              keepalive: true
+            }).catch(() => { /* silent */ });
+          } catch (e) { /* silent */ }
+        }
+      }
+
+      // ─── 이벤트: 페이지 진입 ───
+      track('PAGE_VIEW');
 
       const storeChipEl = document.getElementById('store-chip');
       if (storeName) {
@@ -309,6 +379,7 @@
       goNowBtn.addEventListener('click', () => {
         clearTimeout(autoTimer);
         clearInterval(stepInterval);
+        track('GO_NOW_CLICK');
         goNow();
       });
     })();
