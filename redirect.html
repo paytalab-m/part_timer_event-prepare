@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>신청 페이지로 이동합니다</title>
+
+  <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --accent: #FF6B00;
+      --accent-soft: #FFE9D6;
+      --bg: #FFFFFF;
+      --chip-bg: #FFE9A6;
+      --chip-text: #6B4A1F;
+      --text-900: #2A2A2A;
+      --text-500: #6B6B6B;
+      --text-300: #C8C8C8;
+      --step-bg: #FFF8EC;
+    }
+
+    html, body {
+      font-family: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif;
+      letter-spacing: -0.02em;
+      color: var(--text-900);
+      background: var(--bg);
+      min-height: 100%;
+    }
+
+    /* 전체를 상단 정렬 */
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 56px 24px 40px;
+      gap: 22px;
+    }
+
+    /* 매장명 칩 */
+    .store-chip {
+      display: inline-block;
+      background: var(--chip-bg);
+      color: var(--chip-text);
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      letter-spacing: -0.01em;
+    }
+
+    /* 헤드라인 */
+    .headline {
+      text-align: center;
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: -0.03em;
+    }
+    .headline .accent { color: var(--accent); }
+    .headline .sub {
+      display: block;
+      margin-top: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-500);
+      letter-spacing: -0.02em;
+    }
+
+    /* 일러스트 */
+    .illust {
+      width: 160px;
+      height: 160px;
+      animation: floatY 2.8s ease-in-out infinite;
+    }
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* 단계 리스트 */
+    .steps {
+      width: 100%;
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px;
+      background: var(--step-bg);
+      border-radius: 12px;
+      transition: opacity 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0.45;
+    }
+    .step.active {
+      opacity: 1;
+      background: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(255, 143, 0, 0.18);
+      border: 1px solid var(--accent-soft);
+    }
+    .step.done { opacity: 0.6; }
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--text-300);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      transition: background 0.4s ease;
+    }
+    .step.active .step-num,
+    .step.done .step-num { background: var(--accent); }
+    .step.done .step-num span { display: none; }
+    .step.done .step-num::after {
+      content: '✓';
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .step-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-900);
+      letter-spacing: -0.02em;
+    }
+
+    /* 이동 버튼 */
+    .go-now-btn {
+      width: 100%;
+      max-width: 320px;
+      padding: 14px;
+      background: var(--accent);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      letter-spacing: -0.02em;
+      box-shadow: 0 4px 12px rgba(255, 107, 0, 0.25);
+    }
+    .go-now-btn:active { transform: scale(0.98); }
+  </style>
+</head>
+<body>
+
+  <!-- 매장명 칩 -->
+  <div class="store-chip" id="store-chip">{매장명}</div>
+
+  <!-- 헤드라인 -->
+  <h1 class="headline">
+    <span class="accent">시급 2배 챌린지</span> 참여를 위해<br>
+    아래의 단계를 완료해주세요
+  </h1>
+
+  <!-- 일러스트 (클립보드 + 체크리스트 + 펜) -->
+  <svg class="illust" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="paper-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#FFFFFF"/>
+        <stop offset="100%" stop-color="#FFF6E0"/>
+      </linearGradient>
+      <linearGradient id="pen-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FF8A3C"/>
+        <stop offset="100%" stop-color="#FF6B00"/>
+      </linearGradient>
+    </defs>
+
+    <ellipse cx="100" cy="182" rx="58" ry="6" fill="#000" opacity="0.10"/>
+
+    <rect x="44" y="30" width="100" height="140" rx="6"
+          fill="#E89C4A" stroke="#2A2A2A" stroke-width="2.5"/>
+
+    <rect x="50" y="44" width="88" height="120" rx="3"
+          fill="url(#paper-grad)" stroke="#2A2A2A" stroke-width="2.2"/>
+
+    <rect x="78" y="22" width="32" height="20" rx="3"
+          fill="#FFD84D" stroke="#2A2A2A" stroke-width="2.2"/>
+    <rect x="84" y="28" width="20" height="8" rx="1.5" fill="#2A2A2A"/>
+
+    <circle cx="62" cy="64" r="5" fill="#FF6B00" stroke="#2A2A2A" stroke-width="1.8"/>
+    <path d="M59.5 64 L61.5 66 L65 62.5" stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="72" y1="64" x2="125" y2="64" stroke="#2A2A2A" stroke-width="2" stroke-linecap="round"/>
+
+    <circle cx="62" cy="86" r="5" fill="#FF6B00" stroke="#2A2A2A" stroke-width="1.8"/>
+    <path d="M59.5 86 L61.5 88 L65 84.5" stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="72" y1="86" x2="120" y2="86" stroke="#2A2A2A" stroke-width="2" stroke-linecap="round"/>
+
+    <circle cx="62" cy="108" r="5" fill="#FFFFFF" stroke="#FF6B00" stroke-width="2.2"/>
+    <line x1="72" y1="108" x2="115" y2="108" stroke="#FF6B00" stroke-width="2.2" stroke-linecap="round"/>
+
+    <circle cx="62" cy="130" r="5" fill="#FFFFFF" stroke="#C8C8C8" stroke-width="2"/>
+    <line x1="72" y1="130" x2="105" y2="130" stroke="#C8C8C8" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+
+    <circle cx="62" cy="152" r="5" fill="#FFFFFF" stroke="#C8C8C8" stroke-width="2"/>
+    <line x1="72" y1="152" x2="98" y2="152" stroke="#C8C8C8" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+
+    <g transform="rotate(35 130 110)">
+      <rect x="125" y="80" width="10" height="44" rx="2" fill="url(#pen-grad)" stroke="#2A2A2A" stroke-width="2"/>
+      <rect x="124" y="86" width="3" height="14" fill="#2A2A2A"/>
+      <path d="M125 124 L130 134 L135 124 Z" fill="#2A2A2A"/>
+      <circle cx="130" cy="131" r="1.5" fill="#FF6B00"/>
+      <rect x="125" y="76" width="10" height="6" rx="1.5" fill="#2A2A2A"/>
+    </g>
+
+    <circle cx="32" cy="50" r="2.5" fill="#FF6B00"/>
+    <circle cx="166" cy="60" r="3" fill="#FFB800"/>
+    <circle cx="172" cy="120" r="2" fill="#FF6B00"/>
+    <circle cx="28" cy="140" r="2.2" fill="#FFB800"/>
+    <path d="M24 90 L27 93 M24 93 L27 90" stroke="#FF6B00" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M170 160 L173 163 M170 163 L173 160" stroke="#FFB800" stroke-width="1.8" stroke-linecap="round"/>
+  </svg>
+
+  <!-- 단계 리스트 -->
+  <div class="steps">
+    <div class="step" data-step="1">
+      <div class="step-num"><span>01</span></div>
+      <div class="step-text">신청 정보 입력</div>
+    </div>
+    <div class="step" data-step="2">
+      <div class="step-num"><span>02</span></div>
+      <div class="step-text">가이드 확인</div>
+    </div>
+    <div class="step" data-step="3">
+      <div class="step-num"><span>03</span></div>
+      <div class="step-text">참여코드 등록</div>
+    </div>
+    <div class="step" data-step="4">
+      <div class="step-num"><span>04</span></div>
+      <div class="step-text">영수증 쿠폰 출력</div>
+    </div>
+  </div>
+
+  <!-- 이동 버튼 -->
+  <button type="button" class="go-now-btn" id="go-now-btn">신청 페이지로 이동하기</button>
+
+  <script>
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const nextUrl = params.get('next') || 'https://passorder.kr/Oa8B0jHM';
+      const storeName = params.get('store_name') || '';
+
+      const storeChipEl = document.getElementById('store-chip');
+      if (storeName) {
+        storeChipEl.textContent = storeName;
+      } else {
+        storeChipEl.style.display = 'none';
+      }
+
+      const goNowBtn = document.getElementById('go-now-btn');
+      const steps = document.querySelectorAll('.step');
+
+      function goNow() {
+        try {
+          if (window.top && window.top !== window.self) {
+            window.top.location.href = nextUrl;
+          } else {
+            window.location.href = nextUrl;
+          }
+        } catch (e) {
+          window.location.href = nextUrl;
+        }
+      }
+
+      // 단계 활성화 (1초 간격, 4단계)
+      let currentStep = 0;
+      function activateNextStep() {
+        if (currentStep > 0) {
+          steps[currentStep - 1].classList.remove('active');
+          steps[currentStep - 1].classList.add('done');
+        }
+        if (currentStep < steps.length) {
+          steps[currentStep].classList.add('active');
+          currentStep += 1;
+        }
+      }
+      activateNextStep();
+      const stepInterval = setInterval(() => {
+        if (currentStep < steps.length) {
+          activateNextStep();
+        } else {
+          clearInterval(stepInterval);
+        }
+      }, 1000);
+
+      // 5초 후 자동 이동 (안내 문구 없이)
+      const autoTimer = setTimeout(() => {
+        clearInterval(stepInterval);
+        goNow();
+      }, 5000);
+
+      // 버튼 클릭 시 즉시 이동
+      goNowBtn.addEventListener('click', () => {
+        clearTimeout(autoTimer);
+        clearInterval(stepInterval);
+        goNow();
+      });
+    })();
+  </script>
+</body>
+</html>
