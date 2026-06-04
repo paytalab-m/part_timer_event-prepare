@@ -879,7 +879,7 @@
         </div>
 
         <p class="share-action">
-          오늘 근무하는 동료에게 공유하고 부탁드려보세요!
+          오늘 근무하는 동료가 잘 응대할 수 있도록 안내해주세요
         </p>
 
         <button type="button" class="share-btn" id="btn-share">
@@ -890,7 +890,7 @@
             <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
             <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
           </svg>
-          동료에게 도움 요청하기
+          동료에게 안내하기
         </button>
       </section>
 
@@ -1371,7 +1371,7 @@
           track('COWORKER_SUBSTITUTE_CLICK');
           showToast(
             '확인되었어요',
-            "'" + nickname + "' 알바께 알림이 전달돼요.\\n동료분이 대신 응대하신다고 안내드릴게요.",
+            "'" + nickname + "' 알바께 알림이 전달돼요.\n동료분이 대신 응대하신다고 안내드릴게요.",
             5000
           );
         });
@@ -1414,13 +1414,13 @@
           if (tier)            shareUrl += '&tier=' + encodeURIComponent(tier);
           if (batch)           shareUrl += '&batch=' + encodeURIComponent(batch);
 
-          const shareText = '[' + storeName + '] 근무자님께 도움 요청드려요!\\n\\n' +
-                            nickname + ' 알바가 부재 중일 때 손님 응대를 부탁드려요.\\n안내 페이지를 확인해주세요.';
+          const shareText = '[' + storeName + '] 손님 응대 안내드려요\n\n' +
+                            nickname + ' 알바가 참여 중인 [시급 2배 챌린지] 손님이 오늘 방문할 수 있어요.\n응대 방법은 안내 페이지에서 확인해주세요.';
 
           if (navigator.share) {
             try {
               await navigator.share({
-                title: '[시급 2배 챌린지] ' + nickname + ' 알바의 도움 요청',
+                title: '[시급 2배 챌린지] 손님 응대 안내',
                 text: shareText,
                 url: shareUrl
               });
@@ -1429,7 +1429,7 @@
             }
           } else {
             try {
-              await navigator.clipboard.writeText(shareText + '\\n' + shareUrl);
+              await navigator.clipboard.writeText(shareText + '\n' + shareUrl);
               showToast('복사되었어요', '카톡으로 동료에게 보내주세요!', 4000);
             } catch (e) {
               showToast('공유 실패', '링크를 직접 복사해주세요.', 3000);
